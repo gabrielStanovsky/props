@@ -12,13 +12,16 @@ import os,sys
 from BerkeleyInterface import *
 global parser,opts
 
+
+BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
+
 def load_berkeley(tokenize=True):
     # This should be the path to the Berkeley Parser jar file
-    cp = os.environ.get("BERKELEY_PARSER_JAR", './berkeleyparser/BerkeleyParser-1.7.jar')
+    cp = os.environ.get("BERKELEY_PARSER_JAR", os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar'))
     logging.debug("starting Berkeley parser from {0}".format(cp))
     startup(cp)
     
-    gr = os.environ.get("BERKELEY_PARSER_GRM", './berkeleyparser/eng_sm6.gr')
+    gr = os.environ.get("BERKELEY_PARSER_GRM", os.path.join(BASE_PATH, 'berkeleyparser/eng_sm6.gr'))
     args = {"gr":gr, "tokenize":tokenize}
     
     # Convert args from a dict to the appropriate Java class
@@ -30,7 +33,7 @@ def load_berkeley(tokenize=True):
     parser = loadGrammar(opts)
 
 
-def parseSentences(sent, HOME_DIR = './'):
+def parseSentences(sent, HOME_DIR = BASE_PATH):
     orig_Stdin = sys.stdin
     strIn = StringIO(sent)
     sys.stdin = strIn

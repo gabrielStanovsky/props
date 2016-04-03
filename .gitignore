@@ -129,3 +129,6 @@ pdf/
 install/
 berkeleyparser/
 dependency_tree/stanford-corenlp-3.3.1.jar
+build/
+dist/
+props.egg-info/

@@ -1,8 +1,8 @@
 import re, fileinput
-from graph_representation.graph_wrapper import GraphWrapper, ignore_labels
-from graph_representation.newNode import Node
-from graph_representation.word import Word
-from proposition_structure.syntactic_item import get_verbal_features
+from props.graph_representation.graph_wrapper import GraphWrapper, ignore_labels
+from props.graph_representation.newNode import Node
+from props.graph_representation.word import Word
+from props.proposition_structure.syntactic_item import get_verbal_features
 
 
 __author__ = 'jessica'

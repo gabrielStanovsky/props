@@ -1,5 +1,5 @@
 from syntactic_item import *
-from dependency_tree.definitions import *
+from props.dependency_tree.definitions import *
 
 # class to represent a single proposition, holds a predicate and its arguments
 class Proposition:

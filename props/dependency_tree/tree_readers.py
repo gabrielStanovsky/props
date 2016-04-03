@@ -5,12 +5,11 @@ from props.graph_representation.word import Word
 from props.proposition_structure.syntactic_item import get_verbal_features
 
 
-__author__ = 'jessica'
 
 pat = re.compile("^(?P<rel>.+)\((?P<head>.+)-(?P<head_id>\d+'*), (?P<dep>.+)-(?P<dep_id>\d+'*)\)$")
 
 import os
-from dependency_tree.tree import *
+from props.dependency_tree.tree import *
 
 
 def stanford_from_raw(raw_file):

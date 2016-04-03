@@ -1,14 +1,14 @@
 from subprocess import call
 import pygraph.readwrite
 from pygraph.classes.digraph import digraph
-from graph_representation.newNode import Node, isDefinite, getCopular, \
+from props.graph_representation.newNode import Node, isDefinite, getCopular, \
     getPossesive, EXISTENSIAL
 from pygraph.algorithms.accessibility import accessibility
-from graph_representation.graph_utils import get_min_max_span, find_nodes, \
+from props.graph_representation.graph_utils import get_min_max_span, find_nodes, \
     find_edges, merge_nodes, multi_get, duplicateEdge, accessibility_wo_self, \
     subgraph_to_string
-from graph_representation.word import Word
-from dependency_tree.definitions import domain_label, copular_verbs, \
+from props.graph_representation.word import Word
+from props.dependency_tree.definitions import domain_label, copular_verbs, \
     subject_dependencies, clausal_complement, clausal_complements, \
     FIRST_ENTITY_LABEL, SECOND_ENTITY_LABEL, arguments_dependencies, gerund_pos, \
     determiner_dependencies, determined_labels, SOURCE_LABEL, ARG_LABEL,\
@@ -17,14 +17,14 @@ import pygraph.readwrite.dot
 
 
 from itertools import product
-from graph_representation.proposition import Proposition
+from props.graph_representation.proposition import Proposition
 from copy import copy, deepcopy
 import re, cgi, time, subprocess, math
 
 from itertools import product
-from graph_representation.proposition import Proposition
+from props.graph_representation.proposition import Proposition
 from copy import copy, deepcopy
-from graph_representation import newNode
+from props.graph_representation import newNode
 # from ctypes.wintypes import WORD
 
 

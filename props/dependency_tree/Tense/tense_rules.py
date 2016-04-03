@@ -1,5 +1,5 @@
 __author__ = 'user'
-from dependency_tree.definitions import *
+from props.dependency_tree.definitions import *
 
 # present - "As a result, U.S. Trust's earnings have been hurt"
 def passive_VBN_child(predicate,passive_child):

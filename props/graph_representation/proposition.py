@@ -1,4 +1,4 @@
-from dependency_tree.definitions import subject_dependencies, ARG_LABEL,\
+from props.dependency_tree.definitions import subject_dependencies, ARG_LABEL,\
     object_dependencies, SOURCE_LABEL, domain_label, POSSESSED_LABEL,\
     POSSESSOR_LABEL
 class Proposition:

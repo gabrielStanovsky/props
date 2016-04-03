@@ -3,7 +3,7 @@ from pygraph.classes.digraph import digraph
 # import graph_representation.node
 import subprocess, math, re, nltk
 from pygraph.algorithms.accessibility import accessibility
-from graph_representation.word import NO_INDEX, Word, strip_punctuations
+from props.graph_representation.word import NO_INDEX, Word, strip_punctuations
 from pygraph.algorithms.traversal import traversal
 from pygraph.algorithms.minmax import minimal_spanning_tree, shortest_path
 import cgi

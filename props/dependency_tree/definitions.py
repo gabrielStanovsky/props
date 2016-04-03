@@ -1,4 +1,3 @@
-__author__ = 'jessica'
 REASON_LABEL = "reason"
 OUTCOME_LABEL = "outcome"
 EVENT_LABEL = "event"

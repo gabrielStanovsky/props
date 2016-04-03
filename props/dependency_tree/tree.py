@@ -3,7 +3,6 @@ from props.graph_representation.graphParsingException import GraphParsingExcepti
 from nltk.tree import Tree
 from props.graph_representation.word import Word
 #from graph_representation.graph_utils import find_tree_matches
-__author__ = 'jessica'
 
 from props.dependency_tree.definitions import *
 from props.constituency_tree.definitions import *

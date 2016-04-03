@@ -1,9 +1,9 @@
-import file_handling
+import props.file_handling
 
-from graph_representation.graph_wrapper import  dumpGraphsToTexFile
-from graph_representation.annotations.manual_annotations import ManualAnnotation
-from graph_representation import parse_graph
-from graph_representation.convert import convert
+from props.graph_representation.graph_wrapper import  dumpGraphsToTexFile
+from props.graph_representation.annotations.manual_annotations import ManualAnnotation
+from props.graph_representation import parse_graph
+from props.graph_representation.convert import convert
 import time
 
 

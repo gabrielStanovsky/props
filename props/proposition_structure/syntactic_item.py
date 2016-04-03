@@ -1,5 +1,5 @@
 import inspect
-from dependency_tree.tree import DepTree
+from props.dependency_tree.tree import DepTree
 import sys
 import datetime
 

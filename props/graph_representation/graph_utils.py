@@ -10,7 +10,7 @@ import cgi
 # from graph_representation.node import isRcmodProp
 import time
 # from graph_representation.node import Node
-from graph_representation import newNode
+from props.graph_representation import newNode
 
 
 def accessibility_wo_self(graph):

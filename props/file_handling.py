@@ -1,11 +1,11 @@
 #procedures for storing and restoring objects from files
-import dependency_tree
+import props.dependency_tree
 import json,copy
-from proposition_structure.syntactic_item import get_verbal_features
-from dependency_tree.tree_readers import missing_children
-from graph_representation import newNode
-from graph_representation.word import Word
-from graph_representation.graph_wrapper import GraphWrapper
+from props.proposition_structure.syntactic_item import get_verbal_features
+from props.dependency_tree.tree_readers import missing_children
+from props.graph_representation import newNode
+from props.graph_representation.word import Word
+from props.graph_representation.graph_wrapper import GraphWrapper
 from pygraph.classes.digraph import digraph
 
 #read constituency format in file inp, convert it to dependency format and dump to file out

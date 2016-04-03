@@ -1,5 +1,5 @@
 import unittest
-from unit_tests.props_test import PropsTest
+from props.unit_tests.props_test import PropsTest
 
 
 class SanityTest(PropsTest):

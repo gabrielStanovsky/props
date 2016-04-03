@@ -1,15 +1,15 @@
 from subprocess import call
-from graph_representation.parse_graph import ParseGraph
-from graph_representation.propagate import Propagate
-from graph_representation.fix_graph import FixGraph
-import file_handling
+from props.graph_representation.parse_graph import ParseGraph
+from props.graph_representation.propagate import Propagate
+from props.graph_representation.fix_graph import FixGraph
+import props.file_handling
 import pygraph.readwrite.dot
-from graph_representation.graph_wrapper import GraphWrapper
-from graph_representation.word import Word
-from graph_representation.node import Node, isCondition
-import graph_representation.newNode
-from graph_representation import newNode
-from proposition_structure.syntactic_item import get_verbal_features
+from props.graph_representation.graph_wrapper import GraphWrapper
+from props.graph_representation.word import Word
+from props.graph_representation.node import Node, isCondition
+import props.graph_representation.newNode
+from props.graph_representation import newNode
+from props.proposition_structure.syntactic_item import get_verbal_features
 from copy import copy
 
 

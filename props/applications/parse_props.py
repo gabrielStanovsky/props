@@ -26,11 +26,11 @@ Options:
 import os, sys, string
 HOME_DIR = os.environ.get("PROPEXTRACTION_HOME_DIR", './')+"/"
 
-import run  
-from webinterface import bottle
-from applications.viz_tree import DepTreeVisualizer
-from applications.run import load_berkeley
-import fileinput
+import props.run  
+from props.webinterface import bottle
+from props.applications.viz_tree import DepTreeVisualizer
+from props.applications.run import load_berkeley
+import props.fileinput
 bottle.debug(True)
 import os.path
 import codecs
@@ -39,7 +39,7 @@ import sys,time,datetime
 from subprocess import call
 import svg_stack as ss
 from docopt import docopt
-from applications.run import parseSentences
+from props.applications.run import parseSentences
 
 
 def main(arguments):

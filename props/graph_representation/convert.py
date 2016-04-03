@@ -1,17 +1,17 @@
-from proposition_structure.syntactic_item import get_verbal_features
-from graph_representation import newNode
-from graph_representation.word import Word, NO_INDEX
+from props.proposition_structure.syntactic_item import get_verbal_features
+from props.graph_representation import newNode
+from props.graph_representation.word import Word, NO_INDEX
 from copy import copy
 # from graph_representation.graph_wrapper import GraphWrapper
 import cgi,time
 import subprocess,math,re,os
 from pygraph.algorithms.minmax import shortest_path, minimal_spanning_tree
-from graph_representation.graph_utils import get_min_max_span, duplicateEdge,\
+from props.graph_representation.graph_utils import get_min_max_span, duplicateEdge,\
     find_edges
 from pygraph.algorithms.accessibility import accessibility
-from graph_representation.graph_wrapper import GraphWrapper
-import dependency_tree
-from dependency_tree.tree_readers import create_dep_trees_from_stream
+from props.graph_representation.graph_wrapper import GraphWrapper
+import props.dependency_tree
+from props.dependency_tree.tree_readers import create_dep_trees_from_stream
 # from graph_representation.graph_wrapper import GraphWrapper
 
 

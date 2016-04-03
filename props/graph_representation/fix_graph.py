@@ -1,22 +1,22 @@
-from graph_representation.node import APPOSITION, isApposition, CopularNode,\
+from props.graph_representation.node import APPOSITION, isApposition, CopularNode,\
     addSymmetricPropogation, isConjunction, isProp, isCondition, isPreposition,\
     isAdverb, isPossessive, EXISTENSIAL, COND, isTime, TimeNode, isLocation,\
     LocationNode, join, isCopular, isRcmodProp, isDefinite, PREP
-from graph_representation.graph_utils import find_nodes, duplicate_node, sort_nodes_topologically,\
+from props.graph_representation.graph_utils import find_nodes, duplicate_node, sort_nodes_topologically,\
     sister_nodes, is_following, reattch, duplicate_component, deref,\
     fixPossessor, find_edges, findChain, duplicateEdge, delete_component,\
     isRCmod, get_min_max_span
-from graph_representation.parse_graph import POSSESSOR_LABEL,\
+from props.graph_representation.parse_graph import POSSESSOR_LABEL,\
     APPENDIX_EXISTENSIALS, APPENDIX_RANGE, appendix_types, APPENDIX_LOCATION,\
     FIRST_ENTITY_LABEL, SECOND_ENTITY_LABEL
 from dependency_tree.definitions import EXPL_LABEL, SUBJ_LABEL,\
     subject_dependencies, SOURCE_LABEL, contractions, definite_label,\
     clausal_complements, object_dependencies
-from graph_representation import word, node
-from graph_representation.node import Node
-from graph_representation.word import Word
-from dependency_tree.tree import double_filter
-from constituency_tree.my_definitions import any_in
+from props.graph_representation import word, node
+from props.graph_representation.node import Node
+from props.graph_representation.word import Word
+from props.dependency_tree.tree import double_filter
+from props.constituency_tree.my_definitions import any_in
 
 class FixGraph:
     """

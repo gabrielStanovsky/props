@@ -1,16 +1,16 @@
-import graph_representation.node
-from graph_representation.graph_wrapper import GraphWrapper
-from graph_representation.word import Word, NO_INDEX
-from graph_representation.node import Node,CopularNode,PossessiveNode,PropNode,\
+import props.graph_representation.node
+from props.graph_representation.graph_wrapper import GraphWrapper
+from props.graph_representation.word import Word, NO_INDEX
+from props.graph_representation.node import Node,CopularNode,PossessiveNode,PropNode,\
     AppositionNode, PrepNode, CondNode, ConjunctionNode, advNode, RCMODPropNode,\
     TimeNode, isTime, LocationNode, isLocation
-from dependency_tree.definitions import adjectival_mod_dependencies, labels_ban,\
+from props.dependency_tree.definitions import adjectival_mod_dependencies, labels_ban,\
     filter_labels_ban, condition_outcome_markers, reason_outcome_markers,\
     comp_markers
 
-import graph_utils
-from proposition_structure import syntactic_item
-from graph_representation import word
+import props.graph_utils
+from props.proposition_structure import syntactic_item
+from props.graph_representation import word
 from time_annotator.timex_wrapper import timexWrapper
 from mx.DateTime.ISO import ParseTime
 from location_annotator.textual_location_annotator import textualLocationAnnotator

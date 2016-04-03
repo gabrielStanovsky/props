@@ -1,10 +1,10 @@
-from dependency_tree.tree_readers import read_trees_file, read_dep_graphs_file
-from applications.viz_tree import DepTreeVisualizer
+from props.dependency_tree.tree_readers import read_trees_file, read_dep_graphs_file
+from props.applications.viz_tree import DepTreeVisualizer
 from subprocess import call
-from graph_representation.graph_wrapper import GraphWrapper
-from proposition_structure.syntactic_item import get_verbal_features
+from props.graph_representation.graph_wrapper import GraphWrapper
+from props.proposition_structure.syntactic_item import get_verbal_features
 from copy import copy
-from graph_representation.convert import convert
+from props.graph_representation.convert import convert
 from StringIO import StringIO
 import logging
 

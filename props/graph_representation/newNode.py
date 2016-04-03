@@ -1,7 +1,7 @@
-from graph_representation.word import Word,NO_INDEX, strip_punctuations
+from props.graph_representation.word import Word,NO_INDEX, strip_punctuations
 import cgi
 from copy import deepcopy, copy
-from dependency_tree.definitions import time_prep, definite_label,\
+from props.dependency_tree.definitions import time_prep, definite_label,\
     adjectival_mod_dependencies
 
 COPULA = "SameAs"          # the textual value of a copula node

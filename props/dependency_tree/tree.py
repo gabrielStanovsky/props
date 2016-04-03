@@ -1,13 +1,13 @@
 from __builtin__ import dir
-from graph_representation.graphParsingException import GraphParsingException
+from props.graph_representation.graphParsingException import GraphParsingException
 from nltk.tree import Tree
-from graph_representation.word import Word
+from props.graph_representation.word import Word
 #from graph_representation.graph_utils import find_tree_matches
 __author__ = 'jessica'
 
-from dependency_tree.definitions import *
-from constituency_tree.definitions import *
-from constituency_tree.my_definitions import any_in
+from props.dependency_tree.definitions import *
+from props.constituency_tree.definitions import *
+from props.constituency_tree.my_definitions import any_in
 import copy,os
 from Tense import tense_rules
 UNDERSCORE = "_"

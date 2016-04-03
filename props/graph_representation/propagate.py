@@ -1,4 +1,4 @@
-from graph_representation.node import isProp, isTime
+from props.graph_representation.node import isProp, isTime
 class Propagate:
     """
     class to bunch together all function of propagation on a digraph

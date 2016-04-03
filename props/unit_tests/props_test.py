@@ -1,6 +1,6 @@
 import unittest
-from applications.run import parseSentences
-from applications.run import load_berkeley
+from props.applications.run import parseSentences
+from props.applications.run import load_berkeley
 from _jpype import shutdown
 import logging
 

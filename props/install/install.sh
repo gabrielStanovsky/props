@@ -11,9 +11,9 @@ wget http://berkeleyparser.googlecode.com/files/eng_sm6.gr -O ./berkeleyparser/e
 wget http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar -O ./berkeleyparser/BerkeleyParser-1.7.jar
 wget https://repo1.maven.org/maven2/edu/stanford/nlp/stanford-corenlp/3.3.1/stanford-corenlp-3.3.1.jar -O ./dependency_tree/stanford-corenlp-3.3.1.jar
 cd install/
-unzip svg_stack.zip 
-unzip berekeleyinterface.zip
-unzip JPype-0.5.4.2.zip
+unzip -o svg_stack.zip 
+unzip -o berekeleyinterface.zip
+unzip -o JPype-0.5.4.2.zip
 cd berkeleyinterface-master/
 python setup.py install
 cd ../svg_stack-master/

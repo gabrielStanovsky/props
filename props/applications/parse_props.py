@@ -1,6 +1,6 @@
 """
 Usage:
-  parse_props.py [FILE] (-g|-t) [--original] [--props] [--oie] [--dep] [--tokenized] [--dontfilter]
+  parse_props.py [FILE] (-g|-t) [--original] [--oie] [--dep] [--tokenized] [--dontfilter]
   parse_props.py (-h|--help)
 
 Parse sentences into the PropS representation scheme
@@ -13,7 +13,6 @@ Options:
   -t             print textual PropS representation
   -g             print graphical representation (in svg format)
   --original     print original sentence
-  --props        print the PropS representation of the input
   --oie          print open-ie like extractions
   --dep          print the intermediate dependency representation 
   --tokenized    specifies that the input file is tokenized
@@ -26,11 +25,11 @@ Options:
 import os, sys, string
 HOME_DIR = os.environ.get("PROPEXTRACTION_HOME_DIR", './')+"/"
 
-import props.run  
+import run  
 from props.webinterface import bottle
 from props.applications.viz_tree import DepTreeVisualizer
 from props.applications.run import load_berkeley
-import props.fileinput
+import fileinput
 bottle.debug(True)
 import os.path
 import codecs
@@ -80,11 +79,10 @@ def main(arguments):
                 print(tree)
         
         #print PropS output
-        if (arguments['--props']):
-            if graphical:        
-                print(dot.create(format='svg')+sep)
-            else:
-                print(g)
+        if graphical:        
+            print(dot.create(format='svg')+sep)
+        else:
+            print(g)
         
         #print open ie like extractions
         if (arguments["--oie"]):

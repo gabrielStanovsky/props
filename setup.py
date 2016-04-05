@@ -23,7 +23,8 @@ class install(_install):
 
 if sys.argv[1] == 'install':
     chdir('./props/')
-    call('./install/install.sh')
+    if call('./install/install.sh') != 0:
+	exit(1)
     chdir('../')
         
 

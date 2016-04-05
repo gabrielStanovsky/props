@@ -276,10 +276,44 @@ class GraphWrapper(digraph):
         if (not self.nodesMap[src].isPredicate) or ((label not in arguments_dependencies + clausal_complements)):# and (not label.startswith("prep"))):
             return True
         return False
+    
+    def getJson(self):
+        """
+        @return: json representation of this graph
+        """
+        # format: (unique id, (isPredicate, (minIndex, maxIndex))) 
+        entities = dict([(uid, {'predicate': bool(node.isPredicate), 
+                                'charIndices': (0,0) if not node.text else self.nodeToCharIndices(node)})
+                         for uid, node in self.nodesMap.items()])
+        edges = [(src, dest, self.edge_label((src, dest))) for (src, dest) in self.digraph.edges()]
+        return (entities, edges)
+    
+    
+    def nodeToCharIndices(self, node):
+        ''' Get the start and end char indices from a given word index in a tokenized sentence '''
+        sent = self.originalSentence 
+        if (not node.text):
+            return (0,0)
+        data = sent.split(' ')
+        
+        sortedText = sorted(node.text, key = lambda w: w.index)
+        
+        startInd = sortedText[0].index
+        endInd = sortedText[-1].index
+        
+        if not node.is_implicit():
+            startInd = startInd - 1
+            endInd = endInd - 1
+        
+        baseIndex = sum(map(len, data[:startInd])) + startInd
+        endIndex = sum(map(len, data[:endInd])) + endInd + len(data[endInd])
+        return (baseIndex, endIndex)
+
         
 
     def writeToDot(self, filename, writeLabel):
         """
+        @deprecated: use getJson instead
         Outputs a dot file representing this graph
         
         @type  filename: string

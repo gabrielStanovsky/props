@@ -36,28 +36,89 @@ head.js(
     var collData = {
     
     entity_types: [ 
-    {
-            type   : 'Predicate',
-            labels : ['Predicate', 'Pr'],
+	    {
+	            type   : 'Predicate',
+	            labels : ['Predicate', 'Pr'],
+	            bgColor: '#7fa2ff',
+	            borderColor: 'darken'
+	    },
+	    
+	    
+	    {
+            type   : 'VB',
+            labels : ['VB'],
             bgColor: '#7fa2ff',
             borderColor: 'darken'
-    },
+    	},
+	    
+	
+	    {
+	            type   : 'SameAs',
+	            labels : ['SameAs'],
+	            bgColor: '#7fa2ff',
+	            borderColor: 'darken'
+	    },
+	
+	
+	    {
+	            type   : 'Argument',
+	            labels : ['Argument', 'Ar'],
+	            bgColor: '#ff6a36',
+	            borderColor: 'darken'
+	    },
+	],
+	
+	"entity_attribute_types": [
+        {
+            type: "past",
+            values: {
+                "tense": { "glyph": "(past)", }
+            },
+            bool: "past"
+        },
+        
+        {
+            type: "future",
+            values: {
+                "tense": { "glyph": "(future)", }
+            },
+            bool: "future"
+        },
+        
+        {
+            type: "present",
+            values: {
+                "tense": { "glyph": "(present)", }
+            },
+            bool: "present"
+        },
+        
+        {
+            type: "passive",
+            values: {
+                "passive": { "glyph": "(passive)", }
+            },
+            bool: "passive"
+        },
+        
+        {
+            type: "definite",
+            values: {
+                "definite": { "glyph": "(definite)", }
+            },
+            bool: "definite"
+        },
+        
+        {
+            type: "indefinite",
+            values: {
+                "indefinite": { "glyph": "(indefinite)", }
+            },
+            bool: "indefinite"
+        },
+    
+    ]
 
-    {
-            type   : 'SameAs',
-            labels : ['SameAs'],
-            bgColor: '#7fa2ff',
-            borderColor: 'darken'
-    },
-
-
-    {
-            type   : 'Argument',
-            labels : ['Argument', 'Ar'],
-            bgColor: '#ff6a36',
-            borderColor: 'darken'
-    },
-]
     };
     
 
@@ -77,6 +138,12 @@ head.js(
     ['T4', 'Predicate', [[50, 61]]], */
     ENTITIES_STUB
     ],
+    
+    attributes: [ 
+    //              [ "A1", "Notorious", "T4" ], [ "A2", "Passive", "T4" ]
+    ATTRIBUTES_STUB
+                  
+	],
 
     };
 

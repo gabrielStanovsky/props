@@ -43,7 +43,7 @@ def parseSentences(sent, HOME_DIR = BASE_PATH):
     # Now we can retrieve the output as a string:
     result = strOut.getvalue()
 #     print result
-    tmp_fn = "./tmp"
+    tmp_fn = "./tmp.tmp"
     fout = open(tmp_fn,'w')
     fout.write(result)
     fout.close()

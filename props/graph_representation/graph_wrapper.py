@@ -283,10 +283,20 @@ class GraphWrapper(digraph):
         """
         # format: (unique id, (isPredicate, (minIndex, maxIndex))) 
         entities = dict([(uid, {'predicate': bool(node.isPredicate), 
+                                'feats': self.getFeatsDic(node),  
                                 'charIndices': (0,0) if not node.text else self.nodeToCharIndices(node)})
                          for uid, node in self.nodesMap.items()])
-        edges = [(src, dest, self.edge_label((src, dest))) for (src, dest) in self.digraph.edges()]
+        edges = [(src, dest, self.edge_label((src, dest))) for (src, dest) in digraph.edges(self)]
         return (entities, edges)
+    
+    def getFeatsDic(self, node):
+        
+        return {'implicit' : node.is_implicit(),
+                'tense' : node.features.get('Tense', ''),
+                'text' : sorted(node.text, key = lambda w: w.index),
+                'passive' : 'passive' if 'Passive Voice' in node.features else '',
+                'definite' : node.features.get('Definite', ''),
+                'pos' : node.pos() if node.pos() else 'NNP',}
     
     
     def nodeToCharIndices(self, node):

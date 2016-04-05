@@ -1,6 +1,6 @@
 Installation
 ------------
-From the props root directory, run './install/install.sh'.
+Run 'python ./setup.py install' from the props root directory.
 This will install several python packages which PropS uses and relies upon (see [requirements.txt](install/requirements.txt) for the complete list).
 It is recommended to start a clean virtualenv environment before installing.
 

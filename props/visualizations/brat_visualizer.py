@@ -65,5 +65,7 @@ if __name__ == "__main__":
     load_berkeley(True)
     gs = parseSentences(sent)
     g,tree = gs[0]
+    page = b.to_html(g)
+    page = page.replace('PROPOSITIONS_STUB', '<br>'.join([str(prop) for prop in g.getPropositions('html')]))
     with open('/home/gabis/test/tmp.htm', 'w') as fout:
-        fout.write(b.to_html(g))
+        fout.write(page)

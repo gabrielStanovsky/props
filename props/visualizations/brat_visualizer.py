@@ -53,8 +53,7 @@ class BratVisualizer:
         if feats['implicit']: 
             return ' '.join([w.word for w in feats['text']])
         if d['predicate']:
-            if pos.startswith('VB'):
-                return 'VB'
+            return 'Predicate'
         else: 
             return pos
     

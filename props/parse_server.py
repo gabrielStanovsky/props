@@ -25,13 +25,10 @@ def gparse():
     print "in gparse"
     sent = request.GET.get('text','').strip()
     b = BratVisualizer()
-#    sent = request.forms.get("text").decode("utf8")
     print sent
     sents = sent.strip().replace(". ",".\n").replace("? ","?\n").replace("! ","!\n").split("\n")
     sent = sents[0]
-    #print "before ps"
     gs = parseSentences(sent,"./")
-    #print "after ps"
     g,tree = gs[0]
     
     ret = b.to_html(g)

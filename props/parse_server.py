@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 #coding:utf8
-from webinterface.bottle import route, run, get, post, request, response, static_file
-from webinterface.log import log
-import applications.run  
-from webinterface import bottle
-from applications.viz_tree import DepTreeVisualizer
-from applications.run import load_berkeley
-bottle.debug(True)
+from props.webinterface.bottle import route, run, get, post, request, response, static_file
+from props.webinterface.log import log
+import props.applications.run  
+from props.webinterface import bottle
+from props.applications.viz_tree import DepTreeVisualizer
+from props.applications.run import load_berkeley
 import os.path
 import codecs
 from cStringIO import StringIO
 import sys,time,datetime
 from subprocess import call
 import svg_stack as ss
-
+from props.applications.run import parseSentences
+from visualizations.brat_visualizer import BratVisualizer
 
 try:
    PORT=int(sys.argv[1])
@@ -24,40 +24,44 @@ except:
 def gparse():
     print "in gparse"
     sent = request.GET.get('text','').strip()
+    b = BratVisualizer()
 #    sent = request.forms.get("text").decode("utf8")
     print sent
     sents = sent.strip().replace(". ",".\n").replace("? ","?\n").replace("! ","!\n").split("\n")
     sent = sents[0]
-    gs = applications.run.parseSentences(sent,"./")
+    gs = parseSentences(sent,"./")
     g,tree = gs[0]
-    if tree:
-        # graph to svg file
-        ts = time.time()
-        filename = "./parses/"+datetime.datetime.fromtimestamp(ts).strftime('%d-%m-%Y_%H:%M:%S')
-        g.drawToFile(filename+"_g","svg")
-        
-        # deptree to svg file
-        d = DepTreeVisualizer.from_conll_str(tree)
-        fout = open(filename+"_t.svg",'w')
-        fout.write(d.as_svg(compact=True,flat=True))
-        fout.close()
-        
-        
-        #merge
-        doc = ss.Document()
-        layout1 = ss.VBoxLayout()
-        layout1.addSVG(filename+"_t.svg",alignment=ss.AlignTop|ss.AlignHCenter)
-        layout1.addSVG(filename+"_g.svg",alignment=ss.AlignCenter)
-        doc.setLayout(layout1)
-        doc.save(filename+'.svg')
-        
-        
-        ret = "<html>EXPERIMENTAL VERSION<br><a href =./gparse?{0}>link</a><br><br>{1}<br><br>".format(request.query_string,file(filename+".svg").read())
-        ret += '<font size="5">'
-        ret += '<br>'.join([str(prop) for prop in g.getPropositions('html')])
-        ret += "</html>"
-    else:
-        ret = "<html>Something went wrong<br><br>{0}".format(file("./fail.svg").read())
+    
+    ret = b.to_html(g)
+    
+#     if tree:
+#         # graph to svg file
+#         ts = time.time()
+#         filename = "./parses/"+datetime.datetime.fromtimestamp(ts).strftime('%d-%m-%Y_%H:%M:%S')
+#         g.drawToFile(filename+"_g","svg")
+#         
+#         # deptree to svg file
+#         d = DepTreeVisualizer.from_conll_str(tree)
+#         fout = open(filename+"_t.svg",'w')
+#         fout.write(d.as_svg(compact=True,flat=True))
+#         fout.close()
+#         
+#         
+#         #merge
+#         doc = ss.Document()
+#         layout1 = ss.VBoxLayout()
+#         layout1.addSVG(filename+"_t.svg",alignment=ss.AlignTop|ss.AlignHCenter)
+#         layout1.addSVG(filename+"_g.svg",alignment=ss.AlignCenter)
+#         doc.setLayout(layout1)
+#         doc.save(filename+'.svg')
+#         
+#         
+#         ret = "<html>EXPERIMENTAL VERSION<br><a href =./gparse?{0}>link</a><br><br>{1}<br><br>".format(request.query_string,file(filename+".svg").read())
+#         ret += '<font size="5">'
+#         ret += '<br>'.join([str(prop) for prop in g.getPropositions('html')])
+#         ret += "</html>"
+#     else:
+#         ret = "<html>Something went wrong<br><br>{0}".format(file("./fail.svg").read())
     
     
     return ret

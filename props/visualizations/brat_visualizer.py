@@ -1,7 +1,7 @@
 import os
 from pygraph.classes.digraph import digraph
 from props.applications.run import load_berkeley, parseSentences
-from graph_representation.word import NO_INDEX
+from props.graph_representation.word import NO_INDEX
 
 
 class BratAttribute:

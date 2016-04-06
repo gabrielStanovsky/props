@@ -296,7 +296,8 @@ class GraphWrapper(digraph):
                 'text' : sorted(node.text, key = lambda w: w.index),
                 'passive' : 'passive' if 'Passive Voice' in node.features else '',
                 'definite' : node.features.get('Definite', ''),
-                'pos' : node.pos() if node.pos() else 'NNP',}
+                'pos' : node.pos() if node.pos() else 'NNP',
+                'negated': 'negated' if 'Negation' in node.features else ''}
     
     
     def nodeToCharIndices(self, node):

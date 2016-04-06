@@ -28,13 +28,13 @@ def gparse():
     print sent
     sents = sent.strip().replace(". ",".\n").replace("? ","?\n").replace("! ","!\n").split("\n")
     sent = sents[0]
-    gs = parseSentences(sent,"./")
+    gs = parseSentences(sent)
     g,tree = gs[0]
     
     ret = b.to_html(g)
        
     ret = ret.replace('PROPOSITIONS_STUB', '<br>'.join([str(prop) for prop in g.getPropositions('html')]))
-    
+    print "returning...." 
     return ret
 
 load_berkeley()

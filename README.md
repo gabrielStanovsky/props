@@ -12,7 +12,7 @@ Find more details, examples, and an online demo at the [project page](http:/www.
 Installation
 ------------
 Run 'python ./setup.py install' from the props root directory.
-This will install several python packages which PropS uses and relies upon (see [requirements.txt](props/install/requirements.txt) and [install.sh](props/install/install.sh) for the complete list).
+This will install several python packages and other resources which PropS uses and relies upon (see [requirements.txt](props/install/requirements.txt) and [install.sh](props/install/install.sh) for the complete list).
 
 Prerequisites
 -------------

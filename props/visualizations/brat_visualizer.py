@@ -31,8 +31,6 @@ class BratVisualizer:
                                                        for i, (head, dep, rel) in enumerate(relations)]))
         
         
-        
-        
         return ret
     
     def get_attributes(self, uid, d):
@@ -59,27 +57,3 @@ class BratVisualizer:
     
 BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
 
-if __name__ == "__main__":
-    b = BratVisualizer()
-    sents = [
-#              'Barack Obama, the young candidate, was elected president.',
-#              'She said that the boy is tall.',
-#              'She saw a tall boy',
-#              '''The janitor didn't fix the broken pipe''',
-#              'The janitor did not fix the pipe which was broken',
-#              'John, who is a nice man',
-#              'John is a nice man',
-#              'John, a nice man',
-             '''Mr. Pratt, head of marketing, thinks that lower wine prices have come about because producers don't
-like to see a hit wine dramatically increase in price''']
-              
-              
-    load_berkeley(True)
-    for i, sent in enumerate(sents):
-        print sent
-        gs = parseSentences(sent)
-        g,tree = gs[0]
-        page = b.to_html(g)
-        page = page.replace('PROPOSITIONS_STUB', '<br>'.join([str(prop) for prop in g.getPropositions('html')]))
-        with open('/home/gabis/test/demoPaper{0}.htm'.format(i), 'w') as fout:
-            fout.write(page)

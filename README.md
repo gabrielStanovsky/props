@@ -1,13 +1,19 @@
 What is PropS?
 ------------
+PropS offers an output representation designed to explicitly and uniformly express much of the proposition structure which is implied from syntax.
 
+Semantic NLP applications often rely on dependency trees to recognize major elements of the proposition structure of sentences. 
+Yet, while much semantic structure is indeed expressed by syntax, many phenomena are not easily read out of dependency trees, often leading to further ad-hoc heuristic post-processing or to information loss. 
 
-Live Demo 
+For that end, PropS post-processes dependency trees to present a compelling representation for downstream tasks.
+
+Find more details, examples and anonline demo at the [project page](http:/www.cs.biu.ac.il/~stanovg/props.html).
+
 
 Installation
 ------------
 Run 'python ./setup.py install' from the props root directory.
-This will install several python packages which PropS uses and relies upon (see [requirements.txt](props/install/requirements.txt) for the complete list).
+This will install several python packages which PropS uses and relies upon (see [requirements.txt](props/install/requirements.txt) and [install.sh](props/install/requirements.txt) for the complete list).
 
 Prerequisites
 -------------

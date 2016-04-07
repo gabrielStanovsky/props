@@ -6,7 +6,7 @@ Semantic NLP applications often rely on dependency trees to recognize major elem
 Yet, while much semantic structure is indeed expressed by syntax, many phenomena are not easily read out of dependency trees, often leading to further ad-hoc heuristic post-processing or to information loss. 
 For that end, PropS post-processes dependency trees to present a compelling representation for downstream tasks.
 
-Find more details, examples and anonline demo at the [project page](http:/www.cs.biu.ac.il/~stanovg/props.html).
+Find more details, examples and an online demo at the [project page](http:/www.cs.biu.ac.il/~stanovg/props.html).
 
 
 Installation

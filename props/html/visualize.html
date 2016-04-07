@@ -3,11 +3,15 @@
    <link rel="stylesheet" type="text/css" href="./brat/style-vis.css"/>
    <script type="text/javascript" src="./brat/client/lib/head.load.min.js"></script>
 </head>
+
+<style>
+img {
+  background: url('loading.gif') no-repeat;
+}
+</style>
+
 <body>
 
-<div id="loading">
-  <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
-</div>
 
   <script language="javascript">
 
@@ -190,11 +194,6 @@ docData['relations'] = [
   
 
 
-<script language="javascript" type="text/javascript">
-     $(window).load(function() {
-     $('#loading').hide();
-  });
-</script>
   
 </body>
 </html>

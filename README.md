@@ -20,3 +20,9 @@ Prerequisites
 * python 2.7
 * java 7 (make sure to set the JAVA_HOME enviroment variable (e.g., /usr/lib/[*your_java_folder*])
 
+Testing 
+-------
+
+Run 'python ./unit_tests/sanity_test.py'
+
+

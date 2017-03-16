@@ -16,6 +16,9 @@ unzip -o svg_stack.zip
 unzip -o berekeleyinterface.zip
 unzip -o JPype-0.5.4.2.zip
 cd berkeleyinterface-master/
+# fix version compatibility issue between PropS, Berkeley Interface and setuptools
+# permanent fix should happen in Berkeley Interface repository, temporary fix until then:
+sed -i s/six==1.5.2/six==1.10.0/ requirements.txt
 python setup.py install
 cd ../svg_stack-master/
 python setup.py install

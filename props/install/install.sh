@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 if [ -z "$JAVA_HOME" ]; then
     echo "ERROR!! Set environment variable JAVA_HOME to point to your java location (e.g., /usr/lib/[*your_java_folder*])"
     exit 1

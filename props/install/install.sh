@@ -26,4 +26,5 @@ cd ../JPype-0.5.4.2/
 python setup.py install
 cd ../
 pip install -r requirements.txt
-cd ../
+cd ../../
+export PYTHONPATH=${PYTHONPATH}:`pwd`

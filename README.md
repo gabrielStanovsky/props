@@ -11,7 +11,7 @@ Find more details, examples, and an online demo at the [project page](http:/www.
 
 Installation
 ------------
-Run 'python ./setup.py install' from the props root directory.
+Run 'sudo -E python ./setup.py install' from the props root directory.
 This will install several python packages and other resources which PropS uses and relies upon (see [requirements.txt](props/install/requirements.txt) and [install.sh](props/install/install.sh) for the complete list).
 
 MacOS users might run into issues installing JPype. An instruction to manually install JPype on MacOS can be found on the [berkely parser python interface repository](https://github.com/emcnany/berkeleyinterface#installation-and-dependencies).

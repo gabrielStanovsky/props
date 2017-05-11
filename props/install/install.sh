@@ -4,7 +4,7 @@ if [ -z "$JAVA_HOME" ]; then
     echo "ERROR!! Set environment variable JAVA_HOME to point to your java location (e.g., /usr/lib/[*your_java_folder*])"
     exit 1
 fi  
-mkdir ./berkeleyparser/
+mkdir -p ./berkeleyparser/
 wget https://github.com/emcnany/berkeleyinterface/archive/master.zip -O ./install/berekeleyinterface.zip
 wget https://github.com/astraw/svg_stack/archive/master.zip -O install/svg_stack.zip
 wget "http://downloads.sourceforge.net/project/jpype/JPype/0.5.4/JPype-0.5.4.2.zip?r=&ts=1459330071&use_mirror=nchc" -O install/JPype-0.5.4.2.zip

@@ -8,6 +8,7 @@ from props.graph_representation.convert import convert
 from StringIO import StringIO
 import logging
 
+
 import os,sys
 from BerkeleyInterface import *
 global parser,opts
@@ -17,11 +18,11 @@ BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
 
 def load_berkeley(tokenize=True):
     # This should be the path to the Berkeley Parser jar file
-    cp = os.environ.get("BERKELEY_PARSER_JAR", os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar'))
-    logging.debug("starting Berkeley parser from {0}".format(cp))
+    cp = os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar')
+    logging.info("Starting Berkeley parser from {0}".format(cp))
     startup(cp)
     
-    gr = os.environ.get("BERKELEY_PARSER_GRM", os.path.join(BASE_PATH, 'berkeleyparser/eng_sm6.gr'))
+    gr = os.path.join(BASE_PATH, 'berkeleyparser/eng_sm6.gr')
     args = {"gr":gr, "tokenize":tokenize}
     
     # Convert args from a dict to the appropriate Java class
@@ -62,6 +63,7 @@ def parseSentences(sent, HOME_DIR = BASE_PATH):
 
 if __name__ == "__main__":
     HOME_DIR = os.environ.get("PROPEXTRACTION_HOME_DIR", ".")
+
     fail = HOME_DIR+"fail.svg"
     load_berkeley()
     try:

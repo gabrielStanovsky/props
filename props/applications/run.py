@@ -17,13 +17,13 @@ global parser,opts
 BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
 
 def load_berkeley(tokenize=True,
-                  path_to_berkeley = os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar')):
+                  path_to_berkeley = os.path.join(BASE_PATH, 'berkeleyparser/')):
     # This should be the path to the Berkeley Parser jar file
-    cp = path_to_berkeley
+    cp = os.path.join(path_to_berkeley, "BerkeleyParser-1.7.jar")
     logging.info("Starting Berkeley parser from {0}".format(cp))
     startup(cp)
     
-    gr = os.path.join(BASE_PATH, 'berkeleyparser/eng_sm6.gr')
+    gr = os.path.join(path_to_berkeley, 'eng_sm6.gr')
     args = {"gr":gr, "tokenize":tokenize}
     
     # Convert args from a dict to the appropriate Java class

@@ -59,6 +59,23 @@ inverse_labels = {"subj":["xsubj","nsubj","nsubjpass","csubj","csubjpass","posse
                      } 
 normalize_labels_dic = {}
 
+raising_subj_verbs = [
+    "look"
+    "appear",
+    "begin",
+    "come",
+    "fail",
+    "happen",
+    "include",
+    "prove",
+    "remains",
+    "said",
+    "seem",
+    "stand",
+    "tend",
+    "turn out",
+    ]
+
 for k in inverse_labels:
     for v in inverse_labels[k]:
         normalize_labels_dic[v] = k
@@ -81,12 +98,8 @@ class GraphWrapper(digraph):
         self.HOME_DIR = HOME_DIR
         self.nodesMap = {}
         self.modalVerbs=[]
-        fin = open(self.HOME_DIR+"raising_subj_verbs.txt")
-        for line in fin:
-            w = line.strip()
-            if w:
-                self.modalVerbs.append(w)
-        fin.close()
+        for w in raising_subj_verbs:
+            self.modalVerbs.append(w)
         digraph.__init__(self)
         
     def nodes(self):

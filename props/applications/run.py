@@ -16,9 +16,10 @@ global parser,opts
 
 BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
 
-def load_berkeley(tokenize=True):
+def load_berkeley(tokenize=True,
+                  path_to_berkeley = os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar')):
     # This should be the path to the Berkeley Parser jar file
-    cp = os.path.join(BASE_PATH, 'berkeleyparser/BerkeleyParser-1.7.jar')
+    cp = path_to_berkeley
     logging.info("Starting Berkeley parser from {0}".format(cp))
     startup(cp)
     

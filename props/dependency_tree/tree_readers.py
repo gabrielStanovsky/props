@@ -166,6 +166,7 @@ def read_dep_graphs_file(constituency_tree_fn,wsjInfo_exists=False,HOME_DIR="./"
         curGraph,nodesMap = graphsFromFile[i]
         curGraph.originalSentence = t[0].original_sentence
         curGraph.tree_str = "\n".join(t[0].to_original_format().split("\n")[1:])
+        curGraph.dep_tree = t
         for node_id in nodesMap:
             int_node_id = int(node_id.split("'")[0])
             treeNode = t[int_node_id]

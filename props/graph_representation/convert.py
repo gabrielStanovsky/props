@@ -94,6 +94,7 @@ def convert(gr):
     gr.do_vmod_relclause()
     gr.do_conj()
     gr.normalize_labels()
+    gr.do_questions() # After label normalization
     gr.calcTopNodes()
     return gr
 

@@ -11,7 +11,8 @@ import cgi
 import time
 # from graph_representation.node import Node
 from props.graph_representation import newNode
-
+from operator import itemgetter
+import logging
 
 def accessibility_wo_self(graph):
     ret = accessibility(graph)
@@ -430,6 +431,36 @@ def shortest_distance(graph, node1, node2):
         return -1
     return d[node2]
 
+def find_top_of_component(graph, source_node):
+    """
+    Find the top node of the connected component in which source_node resides.
+    Since this graph may contain cycles - we go "up" the graph, as long as we don't revisit nodes
+    """
+    _, d = shortest_path(reverse_graph_edges(graph), # Reverse graph to go up
+                         source = source_node)
+    return max(d.iteritems(),
+               key = itemgetter(1))[0] # Returns the farthest away node
+
+def reverse_graph_edges(graph):
+    """
+    Returns a reversed version of the input graph.
+    I.e., for each edge (u, v) in graph, there will be an edge (v, u) in the
+    returned graph.
+    The labels aren't changed.
+    """
+    ret_graph = digraph()
+
+    # Add all nodes to the return graph
+    for node in graph.nodes():
+        ret_graph.add_node(node)
+
+    # Add reveresed edges to the returned graph
+    for (u, v) in graph.edges():
+        ret_graph.add_edge((v, u),
+                           label = graph.edge_label((u, v)))
+
+    return ret_graph
+
 def merge_nodes(gr, node1, node2):
     if (gr.has_edge((node1, node2))):
         gr.del_edge((node1, node2))
@@ -486,3 +517,5 @@ def multi_get(d, ls):
     for k in ls:
         ret.extend(d.get(k, []))
     return ret        
+
+

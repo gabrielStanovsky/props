@@ -6,7 +6,7 @@ from props.graph_representation.newNode import Node, isDefinite, getCopular, \
 from pygraph.algorithms.accessibility import accessibility
 from props.graph_representation.graph_utils import get_min_max_span, find_nodes, \
     find_edges, merge_nodes, multi_get, duplicateEdge, accessibility_wo_self, \
-    subgraph_to_string
+    subgraph_to_string, find_top_of_component
 from props.graph_representation.word import Word
 from props.dependency_tree.definitions import domain_label, copular_verbs, \
     subject_dependencies, clausal_complement, clausal_complements, \
@@ -35,6 +35,7 @@ POSSESSOR_LABEL = "possessor"
 POSSESSED_LABEL = "possessed"
 COMP_LABEL = "comp"
 DISCOURSE_LABEL = "discourse"
+QUESTION_INQUIRY = "inquiry"
 
 CONDITION_LABEL = "condition"
 REASON_LABEL = "reason"
@@ -584,8 +585,33 @@ class GraphWrapper(digraph):
                           label=POSSESSOR_LABEL)
             self.add_edge(edge=(possessiveNode, possessed),
                           label=POSSESSED_LABEL)
-    
-    
+
+    def do_questions(self):
+        """
+        Identify questions and introduce appropriate structure
+        This currently follows the syntactic format of geo query wh-questions.
+        Such as: "How large is Texas?"
+        Where we have a WH question word ("How") dependent of a modifier of some property ("Large")
+        """
+        # Find relevant edges
+        edges = find_edges(self,
+                           lambda (u, v): v.is_wh_question())
+
+        # Handle each separately
+        for (modifier, wh_question) in edges:
+            self.types.add("Questions")
+            # 1. Remove dep edge
+            self.del_edge((modifier, wh_question))
+
+            # 2. Posit the wh question as head of the embedded clause
+            self.add_edge(edge = (wh_question,
+                                  find_top_of_component(self,
+                                                        modifier)),
+                          label = QUESTION_INQUIRY)
+
+            # 3. Mark that the Wh-question node is a predicate
+            wh_question.isPredicate = True
+
     def head(self, node):
         incidents = node.incidents()
         while (node.isPredicate) and ("xcomp" in incidents):

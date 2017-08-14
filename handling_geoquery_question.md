@@ -41,5 +41,5 @@ Not sure how to represent these, since their underlying syntactic analysis will 
 
 ### Examples (sentences)
 
-* *Give me the number of rivers in california?"*
+* *Give me the number of rivers in california?*
 * *Count the states which have elevations lower than what alabama has?*

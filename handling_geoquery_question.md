@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [GeoQuery Analysis](#geoquery-analysis)
+  - [Wh-questions](#wh-questions)
+    - [Examples (Conll output representation)](#examples-conll-output-representation)
+  - ["Imperative" questions](#imperative-questions)
+    - [Examples (sentences)](#examples-sentences)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # GeoQuery Analysis
 
 GeoQuery question type analysis, and the desired respective PropS structures.
@@ -24,6 +36,7 @@ labeled with a new 'inquiry' edge label.
 ## "Imperative" questions
 
 These seem to be imperative sentences with a question mark added at the end of the sentence.
+
 Not sure how to represent these, since their underlying syntactic analysis will differ from wh-questions.
 
 ### Examples (sentences)

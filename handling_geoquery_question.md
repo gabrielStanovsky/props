@@ -19,7 +19,7 @@ GeoQuery question type analysis, and the desired respective PropS structures.
 We posit the Wh-question as the head of the predicate with a single argument, 
 labeled with a new 'inquiry' edge label.
 
-### Examples (Conll output representation)
+### Examples (CONLL output representation)
 
 * ```echo "How long is the Colorado River?" | python props/applications/parse_props.py -t --oie```
 

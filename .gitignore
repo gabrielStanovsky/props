@@ -134,3 +134,6 @@ dist/
 props.egg-info/
 props/.*
 props/dependency_tree/stanford-corenlp-3.3.1.jar
+*#*
+*tmp*
+venv

@@ -207,7 +207,20 @@ class Node:
     
     def isConj(self):
         return self.features.get("conj",False)
-    
+
+    def is_wh_question(self):
+        """
+        Returns True iff this is a WH-question word.
+        From PTB pos tags, it seems that W as start of POS identifies
+        such words:
+        33. WDT        Wh-determiner
+        34. WP         Wh-pronoun
+        35. WP$        Possessive wh-pronoun
+        36. WRB        Wh-adverb
+        """
+        return self.pos().startswith("W")
+
+
     def __hash__(self):
         return self.__str__().__hash__()
     

@@ -10,7 +10,6 @@ import logging
 
 
 import os,sys
-from BerkeleyInterface import *
 global parser,opts
 
 
@@ -18,7 +17,10 @@ BASE_PATH = os.path.join(os.path.dirname(__file__), '../')
 
 def load_berkeley(tokenize=True,
                   path_to_berkeley = os.path.join(BASE_PATH, 'berkeleyparser/')):
+
+    from BerkeleyInterface import startup, getOpts, loadGrammar, dictToArgs
     # This should be the path to the Berkeley Parser jar file
+
     cp = os.path.join(path_to_berkeley, "BerkeleyParser-1.7.jar")
     logging.info("Starting Berkeley parser from {0}".format(cp))
     startup(cp)
@@ -35,21 +37,32 @@ def load_berkeley(tokenize=True,
     parser = loadGrammar(opts)
 
 
-def parseSentences(sent, HOME_DIR = BASE_PATH):
-    orig_Stdin = sys.stdin
-    strIn = StringIO(sent)
-    sys.stdin = strIn
-    strOut = StringIO()
-    parseInput(parser, opts, outputFile=strOut)
-    sys.stdin = orig_Stdin
-    # Now we can retrieve the output as a string:
-    result = strOut.getvalue()
-#     print result
-    tmp_fn = "./tmp.tmp"
+def parseSentences(sent, HOME_DIR = BASE_PATH, stanford_json_sent = None):
+
+    if stanford_json_sent:
+        # Use Stanford json notation
+        result = sent['parse'].replace("\n","") + "\n"
+    else:
+        # Use default berkeley parser
+        from BerkeleyInterface import parseInput
+        orig_Stdin = sys.stdin
+        strIn = StringIO(sent)
+        sys.stdin = strIn
+        strOut = StringIO()
+        parseInput(parser, opts, outputFile=strOut)
+        sys.stdin = orig_Stdin
+        result = strOut.getvalue()
+
+    tmp_fn = "./tmp.parse"
     fout = open(tmp_fn,'w')
     fout.write(result)
     fout.close()
-    graphs = read_dep_graphs_file(tmp_fn,False,HOME_DIR)
+    graphs = read_dep_graphs_file(tmp_fn,
+                                  False,
+                                  HOME_DIR,
+                                  stanford_json_sent = sent \
+                                  if stanford_json_sent \
+                                  else False)
     ret = []
     for graph in graphs:        
         g = convert(graph)
@@ -58,8 +71,9 @@ def parseSentences(sent, HOME_DIR = BASE_PATH):
     if not graphs:#Berkley bug?
         ret.append((GraphWrapper("",HOME_DIR),""))
 
-    strIn.close()
-    strOut.close()
+    if (not stanford_json_sent):
+        strIn.close()
+        strOut.close()
     return ret
 
 if __name__ == "__main__":

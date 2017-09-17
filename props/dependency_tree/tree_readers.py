@@ -40,7 +40,26 @@ def convert_to_dep_graph(constituency_tree_fn):
     convert_command = "java -cp {0}/{1} edu.stanford.nlp.trees.EnglishGrammaticalStructure -treeFile {2} -collapsed -makeCopulaHead -keepPunct -originalDependencies".format(dir_path, STANFORD_JAR,constituency_tree_fn)
     stream = os.popen(convert_command)
     return stream
-    
+
+
+def convert_json_to_dep_graph(stanford_json_sent):
+    """
+    Given a Stanford json output,
+    return a stream simulating the corresponding to output of convert_to_dep_graph
+    """
+    with open("tmp.dep", 'w') as fout:
+        # Get the basic dependencies and sort by dependent to simulate old format
+        # and output this sentence in the older format
+        fout.write('\n'.join(["{}({}-{}, {}-{})".format(rel['dep'],
+                                                         rel['governorGloss'],
+                                                         rel['governor'],
+                                                         rel['dependentGloss'],
+                                                         rel['dependent'])
+                                for rel in sorted(stanford_json_sent['basicDependencies'],
+                                                  key = lambda rel: rel['dependent'])]) + "\n\n") # Add new line
+
+    # Return stream (by convention of convert_to_dep_graph
+    return open("tmp.dep")
 
 def create_dep_graphs_from_stream(stream,HOME_DIR):
     graphs = []
@@ -48,9 +67,7 @@ def create_dep_graphs_from_stream(stream,HOME_DIR):
     curGraph = GraphWrapper("",HOME_DIR)
     nodesMap = {}
     for line in stream:
-
         line = line.strip()
-#         print line
         if line:
             init = False
             m = pat.match(line)
@@ -96,9 +113,7 @@ def create_dep_trees_from_stream(stream, wsjInfo_exists, collapsed=False):
     words = []
 
     for line in stream:
-#        print line 
        line = line.strip()
-#        print line
        # Starting parsing of new tree
        if init_flag:
            if wsjInfo_exists:
@@ -156,8 +171,15 @@ def missing_children(treeNode,graphNode):
     return ret
 
 
-def read_dep_graphs_file(constituency_tree_fn,wsjInfo_exists=False,HOME_DIR="./"):
-    stream = convert_to_dep_graph(constituency_tree_fn)
+def read_dep_graphs_file(constituency_tree_fn,
+                         wsjInfo_exists=False,
+                         HOME_DIR="./",
+                         stanford_json_sent = None):
+
+
+    stream = convert_json_to_dep_graph(stanford_json_sent) \
+             if stanford_json_sent \
+                else convert_to_dep_graph(constituency_tree_fn)
 
     graphsFromFile = create_dep_graphs_from_stream(stream,HOME_DIR)
     trees = read_trees_file(constituency_tree_fn,False)

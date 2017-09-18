@@ -103,7 +103,7 @@ def main(arguments):
     
 
 if __name__ == "__main__":
-    logging.basicConfig(level = logging.INFO)
+    logging.basicConfig(level = logging.DEBUG)
     arguments = docopt(__doc__)
     logging.debug(arguments)
     if arguments["FILE"]:

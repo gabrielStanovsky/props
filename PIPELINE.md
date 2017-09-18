@@ -15,7 +15,7 @@ pip install -r ./props/install/requirements.txt
 ```
 
 ## Usage
-Use the new command line flag ```--corenlp-json-input`` and supply the json input either from STDIN or in 
+Use the new command line flag ```--corenlp-json-input``` and supply the json input either from STDIN or in 
 the file as the first argument.
 
 See all command line options in [parse_props.py](props/applications/parse_props.py)

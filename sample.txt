@@ -1,0 +1,326 @@
+{
+  "sentences": [
+    {
+      "index": 0,
+      "parse": "(ROOT\n  (S\n    (NP (DT the) (JJ lazy) (JJ brown) (NN fox))\n    (VP (VBD jumped)\n      (PP (IN over)\n        (NP (DT the) (JJ lazy) (NN dog))))\n    (. .)))",
+      "basicDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "prep",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "pobj",
+          "governor": 6,
+          "governorGloss": "over",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        },
+        {
+          "dep": "punct",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 10,
+          "dependentGloss": "."
+        }
+      ],
+      "enhancedDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "prep",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "pobj",
+          "governor": 6,
+          "governorGloss": "over",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        },
+        {
+          "dep": "punct",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 10,
+          "dependentGloss": "."
+        }
+      ],
+      "enhancedPlusPlusDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "prep",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "pobj",
+          "governor": 6,
+          "governorGloss": "over",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        },
+        {
+          "dep": "punct",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 10,
+          "dependentGloss": "."
+        }
+      ],
+      "tokens": [
+        {
+          "index": 1,
+          "word": "the",
+          "originalText": "the",
+          "characterOffsetBegin": 0,
+          "characterOffsetEnd": 3,
+          "pos": "DT",
+          "before": "",
+          "after": " "
+        },
+        {
+          "index": 2,
+          "word": "lazy",
+          "originalText": "lazy",
+          "characterOffsetBegin": 4,
+          "characterOffsetEnd": 8,
+          "pos": "JJ",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 3,
+          "word": "brown",
+          "originalText": "brown",
+          "characterOffsetBegin": 9,
+          "characterOffsetEnd": 14,
+          "pos": "JJ",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 4,
+          "word": "fox",
+          "originalText": "fox",
+          "characterOffsetBegin": 15,
+          "characterOffsetEnd": 18,
+          "pos": "NN",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 5,
+          "word": "jumped",
+          "originalText": "jumped",
+          "characterOffsetBegin": 19,
+          "characterOffsetEnd": 25,
+          "pos": "VBD",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 6,
+          "word": "over",
+          "originalText": "over",
+          "characterOffsetBegin": 26,
+          "characterOffsetEnd": 30,
+          "pos": "IN",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 7,
+          "word": "the",
+          "originalText": "the",
+          "characterOffsetBegin": 31,
+          "characterOffsetEnd": 34,
+          "pos": "DT",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 8,
+          "word": "lazy",
+          "originalText": "lazy",
+          "characterOffsetBegin": 35,
+          "characterOffsetEnd": 39,
+          "pos": "JJ",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 9,
+          "word": "dog",
+          "originalText": "dog",
+          "characterOffsetBegin": 40,
+          "characterOffsetEnd": 43,
+          "pos": "NN",
+          "before": " ",
+          "after": ""
+        },
+        {
+          "index": 10,
+          "word": ".",
+          "originalText": ".",
+          "characterOffsetBegin": 43,
+          "characterOffsetEnd": 44,
+          "pos": ".",
+          "before": "",
+          "after": "\n"
+        }
+      ]
+    }
+  ]
+}

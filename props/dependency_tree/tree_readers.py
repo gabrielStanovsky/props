@@ -1,4 +1,5 @@
 import re, fileinput
+import logging
 from props.graph_representation.graph_wrapper import GraphWrapper, ignore_labels
 from props.graph_representation.newNode import Node
 from props.graph_representation.word import Word
@@ -61,6 +62,40 @@ def convert_json_to_dep_graph(stanford_json_sent):
     # Return stream (by convention of convert_to_dep_graph
     return open("tmp.dep")
 
+
+def convert_json_to_dep_tree(stanford_json_sent):
+    """
+    Given a Stanford json output,
+    return a stream simulating the corresponding to output of convert_to_dep_tree (conll format)
+    """
+    # Align depdencies with tokens
+    toks = sorted(stanford_json_sent['tokens'],
+                  key = lambda tok: tok['index'])
+    basic_dependencies = sorted(stanford_json_sent['basicDependencies'],
+                                key = lambda rel: rel['dependent'])
+
+    ret_fn = "tmp.conll"
+    with open(ret_fn, 'w') as fout:
+        # Get the basic dependencies and sort by dependent to simulate old format
+        # and output this sentence in the conll
+        fout.write('\n'.join(["\t".join(map(str,
+                                            [tok['index'],
+                                             tok['originalText'],
+                                             '_',
+                                             tok['pos'],
+                                             tok['pos'],
+                                             '_',
+                                             rel['governor'],
+                                             rel['dep'].lower(),
+                                             '_',
+                                             '_']))
+                              for tok, rel in zip(toks,
+                                                  basic_dependencies)]) + '\n\n')
+
+    # Return stream (by convention of convert_to_dep_graph
+    return open(ret_fn)
+
+
 def create_dep_graphs_from_stream(stream,HOME_DIR):
     graphs = []
     init = True
@@ -106,7 +141,6 @@ def create_dep_graphs_from_stream(stream,HOME_DIR):
 # Input :   stream of dep trees converted by Stanford parser
 # Output:   List of DepTree
 def create_dep_trees_from_stream(stream, wsjInfo_exists, collapsed=False):
-
     dep_trees = []
     init_flag = True
     wsj_id, sent_id = 0,0
@@ -160,8 +194,14 @@ def create_dep_trees_from_stream(stream, wsjInfo_exists, collapsed=False):
 #     return dep_trees
 
 
-def read_trees_file(constituency_tree_fn,wsjInfo_exists=True):
-   stream = convert_to_dep_tree(constituency_tree_fn)
+def read_trees_file(constituency_tree_fn,
+                    wsjInfo_exists=True,
+                    stanford_json_sent = None):
+
+   stream = convert_json_to_dep_tree(stanford_json_sent) \
+            if stanford_json_sent \
+               else convert_to_dep_tree(constituency_tree_fn)
+
    return create_dep_trees_from_stream(stream,wsjInfo_exists)
 
 
@@ -169,7 +209,6 @@ def missing_children(treeNode,graphNode):
     neighbors = graphNode.neighbors()
     ret = [Word(index=c.id,word=c.word) for c in treeNode.children if (c.parent_relation not in neighbors) or (c.id != neighbors[c.parent_relation][0].text[0].index) or (c.parent_relation in ignore_labels)]
     return ret
-
 
 def read_dep_graphs_file(constituency_tree_fn,
                          wsjInfo_exists=False,
@@ -182,7 +221,9 @@ def read_dep_graphs_file(constituency_tree_fn,
                 else convert_to_dep_graph(constituency_tree_fn)
 
     graphsFromFile = create_dep_graphs_from_stream(stream,HOME_DIR)
-    trees = read_trees_file(constituency_tree_fn,False)
+    trees = read_trees_file(constituency_tree_fn,
+                            False,
+                            stanford_json_sent)
     graphs = []
     for i,t in enumerate(trees):
         curGraph,nodesMap = graphsFromFile[i]

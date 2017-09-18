@@ -17,3 +17,4 @@ java -cp "$CORENLP_HOME/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP \
 # Run PropS on output
 # (Stanford outputs to ${1}.json)
 # TODO: Stanford doesn't seem to allow printing to standard output, so piping wasn't possible
+cat ${1}.json | python props/applications/parse_props.py -t --oie --corenlp-json-input

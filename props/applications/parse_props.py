@@ -38,7 +38,6 @@ import codecs
 from cStringIO import StringIO
 import sys,time,datetime
 from subprocess import call
-import svg_stack as ss
 from docopt import docopt
 from props.applications.run import parseSentences
 import logging
@@ -103,7 +102,7 @@ def main(arguments):
     
 
 if __name__ == "__main__":
-    logging.basicConfig(level = logging.DEBUG)
+    logging.basicConfig(level = logging.INFO)
     arguments = docopt(__doc__)
     logging.debug(arguments)
     if arguments["FILE"]:

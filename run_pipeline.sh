@@ -1,3 +1,4 @@
+#!/bin/sh
 # Usage:
 #     run_pipeline <raw input file>
 # Run the Stanford parser over raw sentences file (one per line)
@@ -6,7 +7,6 @@
 #   * This assumes that CORENLP_HOME points to the corenlp home directory (containing all jars)
 #   * We use the Stanford dependency format (not Universal Dependencies)
 #   * We use the makeCopulaHead flag
-#!/bin/sh
 set -e
 # Run Stanford parser
 java -cp "$CORENLP_HOME/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP \

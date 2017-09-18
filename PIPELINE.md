@@ -13,7 +13,7 @@
 
 PropS now supports pipelining from a dependency parser which produces output
 conforming with [Stanford's CORENLP json output format](https://stanfordnlp.github.io/CoreNLP/cmdline.html).
-This allows for a light and hopefully easier to install version of PropS
+This allows for an independent, light-weight, and hopefully easier to install version of PropS.
 
 ## Installation
 
@@ -50,8 +50,3 @@ To use it on a sample raw input file, try:
 **NOTE**:
 * We use the Stanford dependency format (not Universal Dependencies)
 * We use the makeCopulaHead flag
-
-
-
-
-

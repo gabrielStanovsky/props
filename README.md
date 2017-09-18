@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [What is PropS?](#what-is-props)
+  - [Light-weight Installation](#light-weight-installation)
+  - [Full Installation (with Berkeley Parser)](#full-installation-with-berkeley-parser)
+    - [Prerequisites](#prerequisites)
+    - [Testing](#testing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # What is PropS?
 
 PropS offers an output representation designed to explicitly and uniformly express much of the proposition structure which is implied from syntax.

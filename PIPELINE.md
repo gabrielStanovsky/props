@@ -39,12 +39,12 @@ See all command line options in [parse_props.py](props/applications/parse_props.
 
 ### Piping with CORENLP
 
-We supply a pipeline to interact with the CORENLP parser, assuming it is already installed, and that the
+We supply a [pipeline script](run_pipeline.sh) to interact with the CORENLP parser, assuming it is already installed, and that the
 ```CORENLP_HOME``` environment variable points to the CORENLP home folder containing all its jars.
 
 To use it on a sample raw input file, try:
 ```
-./run_pipeline sample.txt
+./run_pipeline.sh sample.txt
 ```
 
 **NOTE**:

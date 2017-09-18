@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Running PropS as part of a pipeline](#running-props-as-part-of-a-pipeline)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Piping with CORENLP](#piping-with-corenlp)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Running PropS as part of a pipeline
 
 PropS now supports pipelining from a dependency parser which produces output

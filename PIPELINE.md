@@ -27,7 +27,7 @@ pip install -r ./props/install/requirements.txt
 
 ## Usage
 Use the new command line flag ```--corenlp-json-input``` and supply the json input either from STDIN or in 
-the file as the first argument.
+file name as the first argument.
 
 For example, try:
 

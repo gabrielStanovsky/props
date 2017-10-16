@@ -194,7 +194,10 @@ class GraphWrapper(digraph):
         @param node: the nodes of the neighbors
         """
         if isinstance(node, Node):
-            return [self.nodesMap[uid] for uid in digraph.neighbors(self, node.uid)]
+            try:
+                return [self.nodesMap[uid] for uid in digraph.neighbors(self, node.uid)]
+            except:
+                return []
         else:
             return digraph.neighbors(self, node)
     

@@ -5,6 +5,7 @@ from props.graph_representation.graph_wrapper import GraphWrapper
 from props.proposition_structure.syntactic_item import get_verbal_features
 from copy import copy
 from props.graph_representation.convert import convert
+from props.graph_representation.newNode import resetCounter
 from StringIO import StringIO
 import logging
 
@@ -38,7 +39,7 @@ def load_berkeley(tokenize=True,
 
 
 def parseSentences(sent, HOME_DIR = BASE_PATH, stanford_json_sent = None):
-
+    resetCounter()
     if stanford_json_sent:
         # Use Stanford json notation
         result = sent['parse'].replace("\n","") + "\n"

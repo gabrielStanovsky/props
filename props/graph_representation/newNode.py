@@ -33,7 +33,11 @@ PRINT_FEATURES = [("Tense",lambda t:t),
                   ("Modifier",lambda t:"modifier: "+t)]
 
 global nodeCounter
-nodeCounter =0
+nodeCounter = 0
+
+def resetCounter():
+    global nodeCounter
+    nodeCounter = 0
 
 
 
